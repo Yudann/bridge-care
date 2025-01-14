@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./logo.png">
+    <title>Bridge Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+        header {
+            background: #4caf50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .logo img {
+            height: 40px;
+        }
+        .logo p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: url('https://via.placeholder.com/50') no-repeat center center / cover;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        .container {
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+        .btn {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        .form {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form input, .form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .form button {
+            background: #4caf50;
+            color: white;
+            border: none;
+        }
+        .form button:hover {
+            background: #45a049;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .service-card img {
+            max-width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .profile-page {
+            display: none;
+        }
+        .profile-card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .rating {
+            color: #ffc107;
+            font-size: 14px;
+        }
+        .service-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 100px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #4caf50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="./logo.png" alt="Bridge Care Logo">
+        <p>Bridge Care</p>
+    </div>
+</header>
+
+<div id="login-page" class="container">
+    <h2>Login</h2>
+    <div class="form">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button onclick="goToDashboard()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="goToRegister()">Register here</a></p>
+    </div>
+</div>
+
+<div id="register-page" class="container" style="display: none;">
+    <h2>Register</h2>
+    <div class="form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button onclick="goToDashboard()">Register</button>
+    </div>
+</div>
+
+<div id="dashboard-page" class="container" style="display: none;">
+    <h2>Welcome to Bridge Care</h2>
+    <p>Select a service:</p>
+    <div class="service-grid">
+        <div class="service-card" onclick="viewProfile('Nurse Service')">
+            <img class="service-icon" src="./perawat.jpeg" alt="Nurse Service">
+            <h3>Nurse Service</h3>
+            <p>Professional nursing care at your home.</p>
+        </div>
+        <div class="service-card" onclick="viewProfile('Physiotherapist')">
+            <img class="service-icon" src="./terapi.jpeg" alt="Physiotherapist">
+            <h3>Physiotherapist</h3>
+            <p>Specialized therapy for your better health.</p>
+        </div>
+        <div class="service-card" onclick="viewProfile('Doctor Consultation')">
+            <img class="service-icon" src="./dokter.jpeg" alt="Doctor Consultation">
+            <h3>Doctor Consultation</h3>
+            <p>Consultation with experienced doctors.</p>
+        </div>
+        <div class="service-card" onclick="viewProfile('Ambulance Service')">
+            <img class="service-icon" src="./ambulan.jpeg" alt="Ambulance Service">
+            <h3>Ambulance Service</h3>
+            <p>Quick and reliable emergency ambulance.</p>
+        </div>
+    </div>
+</div>
+
+<div id="profile-page" class="container profile-page">
+    <h2 id="service-title"></h2>
+    <div id="profile-list">
+        <!-- Profiles will be dynamically loaded here -->
+    </div>
+    <button class="btn" onclick="goBackToDashboard()">Back to Dashboard</button>
+</div>
+
+<footer>
+    &copy; 2025 Bridge Care
+</footer>
+
+<script>
+    const profiles = {
+        "Nurse Service": [
+            { name: "Nurse Anna", rating: 4.8, price: "150,000", img: "./perawar1.jpeg" },
+            { name: "Nurse John", rating: 4.6, price: "150,000", img: "./perawat2.jpeg" }
+        ],
+        "Physiotherapist": [
+            { name: "Physio Mike", rating: 4.7, price: "150,000", img: "./terapi1.jpeg" },
+            { name: "Physio Sarah", rating: 4.9, price: "150,000", img: "./terapi2.jpeg" }
+        ],
+        "Doctor Consultation": [
+            { name: "Dr. Smith", rating: 4.5, price: "25,000", img: "./dokter1.jpeg" },
+            { name: "Dr. Emily", rating: 4.7, price: "30,000", img: "./dokter2.jpeg" }
+        ],
+        "Ambulance Service": [
+            { name: "Ambulance A", rating: 4.9, price: "200,000", img: "./ambulan.jpeg" },
+            { name: "Ambulance B", rating: 4.8, price: "250,000", img: "./ambulan.jpeg" }
+        ]
+    };
+
+    function goToDashboard() {
+        document.getElementById("login-page").style.display = "none";
+        document.getElementById("register-page").style.display = "none";
+        document.getElementById("dashboard-page").style.display = "block";
+        document.getElementById("profile-page").style.display = "none";
+    }
+
+    function goToRegister() {
+        document.getElementById("login-page").style.display = "none";
+        document.getElementById("register-page").style.display = "block";
+        document.getElementById("dashboard-page").style.display = "none";
+        document.getElementById("profile-page").style.display = "none";
+    }
+
+    function viewProfile(service) {
+        document.getElementById("dashboard-page").style.display = "none";
+        document.getElementById("profile-page").style.display = "block";
+        document.getElementById("service-title").innerText = service;
+        const profileList = document.getElementById("profile-list");
+        profileList.innerHTML = "";
+        profiles[service].forEach(profile => {
+            profileList.innerHTML += `
+                <div class="profile-card">
+                    <img src="${profile.img}" alt="${profile.name}">
+                    <h3>${profile.name}</h3>
+                    <p class="rating">⭐ ${profile.rating}</p>
+                    <p>Price: ${profile.price}</p>
+                </div>
+            `;
+        });
+    }
+
+    function goBackToDashboard() {
+        document.getElementById("profile-page").style.display = "none";
+        document.getElementById("dashboard-page").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
