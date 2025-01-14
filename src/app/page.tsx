@@ -25,7 +25,7 @@ export default function Home() {
     } else {
       // Simpan username di cookies untuk user biasa
       Cookies.set("username", username, { expires: 7 });
-      alert("Berhasil login sebagai User");
+      alert("Login berhasil");
       router.push("/dashboard"); // Arahkan ke halaman user dashboard
     }
   };
