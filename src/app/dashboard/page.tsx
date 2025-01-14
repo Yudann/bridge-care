@@ -44,7 +44,7 @@ export default function DashboardPage() {
       setUsername(savedUsername);
     } else {
       // Jika tidak ada username, arahkan ke halaman login
-      router.push("/sign-in");
+      router.push("/");
     }
   }, [router]);
 
