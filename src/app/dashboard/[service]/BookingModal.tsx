@@ -10,7 +10,7 @@ export default function BookingModal({
   onClose,
 }: BookingModalProps) {
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center px-3">
+    <div className="fixed z-[998] top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center px-3">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
         <h2 className="text-xl font-bold mb-4">Konfirmasi Pesanan</h2>
         <p>

@@ -75,16 +75,16 @@ const profiles: ProfilesData = {
   ],
   "Ambulance Service": [
     {
-      name: "Ambulance A",
+      name: "Ambulance Jenazah",
       rating: 4.9,
       price: "200,000",
-      img: "/ambulan.jpeg",
+      img: "/ambulan1.jpeg",
     },
     {
-      name: "Ambulance B",
+      name: "Ambulance Full Medis",
       rating: 4.8,
       price: "250,000",
-      img: "/ambulan.jpeg",
+      img: "/ambulan2.jpeg",
     },
   ],
 };
@@ -109,7 +109,7 @@ export default function ServicePage() {
     <div className="p-6">
       <button
         onClick={() => router.push("/dashboard")}
-        className="mb-4 text-blue-500 underline"
+        className="mb-4 text-white bg-green-500 hover:bg-green-600 px-5 py-2 rounded-lg"
       >
         Back to Dashboard
       </button>

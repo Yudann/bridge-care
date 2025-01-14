@@ -1,14 +1,19 @@
 import { useState } from "react";
 import BookingModal from "./BookingModal";
+import { FaComment } from "react-icons/fa";
 
-const serviceOptions: Record<string, string[]> = {
+const serviceOptions: Record<string, (string | JSX.Element)[]> = {
   Nurse: ["Perawatan Luka", "Perawatan Lansia", "Layanan Kesehatan Anak"],
   Physiotherapist: [
     "Terapi untuk Lansia",
     "Pemulihan Pasca Stroke",
     "Pemulihan Setelah Cedera",
   ],
-  Doctor: ["Pemeriksaan Umum", "Pemeriksaan Khusus"],
+  Doctor: [
+    <span key="consultation">
+      <FaComment size={15} className="inline mx-1" /> Konsultasi
+    </span>,
+  ],
   Ambulance: ["Full Medis", "Ambulan Jenazah"],
 };
 
@@ -45,7 +50,7 @@ export default function ServiceOptions({
 
   if (!category) {
     return (
-      <div className="fixed top-0 left-0 px-3 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="fixed z-[9999] top-0 left-0 px-3 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
           <p className="text-red-500">Kategori layanan tidak ditemukan!</p>
           <button onClick={onClose} className="text-blue-500 mt-4">
@@ -53,6 +58,17 @@ export default function ServiceOptions({
           </button>
         </div>
       </div>
+    );
+  }
+
+  // Jika kategori Doctor atau Ambulance, langsung menuju BookingModal
+  if (category === "Doctor" || category === "Ambulance") {
+    return (
+      <BookingModal
+        profile={profile}
+        service={category} // Tidak perlu memilih opsi, langsung kirim kategori
+        onClose={onClose}
+      />
     );
   }
 
@@ -70,7 +86,7 @@ export default function ServiceOptions({
               <button
                 key={index}
                 className="block w-full text-left border p-2 rounded-md mb-2 hover:bg-blue-100"
-                onClick={() => setSelectedService(service)}
+                onClick={() => setSelectedService(service as string)}
               >
                 {service}
               </button>

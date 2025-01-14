@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="fixed top-0 left-0 right-0 z-[9999] bg-green-600 text-white flex justify-between items-center p-4">
+        <header className="fixed top-0 left-0 right-0 z-[998] bg-green-600 text-white flex justify-between items-center p-4">
           <div className="flex items-center gap-2">
             <Image
               src="/logo.png"
