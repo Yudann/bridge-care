@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Image from "next/image";
-import { IoIosLogOut } from "react-icons/io";
+import Logout from "@/components/Logout";
 
 export const metadata: Metadata = {
   title: "Bridge Care",
@@ -27,10 +27,10 @@ export default function RootLayout({
             />
             <p className="text-lg font-semibold">Bridge Care</p>
           </div>
-          <IoIosLogOut size={25} className="cursor-pointer fill-red-600" />
+          <Logout />
         </header>
         <main className="container mx-auto my-16 p-6 h-full">{children}</main>
-        <footer className="fixed bottom-0 left-0 right-0 z-[9999] bg-green-600 text-white text-center py-2 mt-8">
+        <footer className="fixed bottom-0 left-0 right-0 z-[998] bg-green-600 text-white text-center py-2 mt-8">
           &copy; 2025 Bridge Care
         </footer>
       </body>

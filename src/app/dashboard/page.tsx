@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import ServiceCard from "./components/ServiceCard";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 const services = [
   {
@@ -33,10 +35,25 @@ const services = [
 export default function DashboardPage() {
   const router = useRouter();
 
+  const [username, setUsername] = useState<string | null>(null);
+  useEffect(() => {
+    // Ambil username dari cookies saat komponen pertama kali dimuat
+    const savedUsername = Cookies.get("username");
+
+    if (savedUsername) {
+      setUsername(savedUsername);
+    } else {
+      // Jika tidak ada username, arahkan ke halaman login
+      router.push("/sign-in");
+    }
+  }, [router]);
+
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Welcome to Bridge Care</h2>
-      <p className="mb-6">Select a service:</p>
+      <h2 className="text-2xl font-bold mb-4">
+        Welcome to Bridge Care, {username}!
+      </h2>
+      <p className="mb-6">Select a service</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {services.map((service) => (
           <ServiceCard

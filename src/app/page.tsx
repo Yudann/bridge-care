@@ -19,7 +19,7 @@ export default function Home() {
     // Simpan username di cookies
     Cookies.set("username", username, { expires: 7 }); // Username disimpan selama 7 hari
     alert("Berhasil login");
-    router.push("/dashboard"); // Navigasi ke halaman home
+    router.push("/dashboard");
   };
 
   return (
