@@ -16,10 +16,18 @@ export default function Home() {
       return;
     }
 
-    // Simpan username di cookies
-    Cookies.set("username", username, { expires: 7 }); // Username disimpan selama 7 hari
-    alert("Berhasil login");
-    router.push("/dashboard");
+    // Logika untuk login sebagai admin
+    if (username === "admin" && password === "admin") {
+      // Simpan username di cookies sebagai admin
+      Cookies.set("username", username, { expires: 7 });
+      alert("Login sebagai Admin");
+      router.push("/admin"); // Arahkan ke halaman admin
+    } else {
+      // Simpan username di cookies untuk user biasa
+      Cookies.set("username", username, { expires: 7 });
+      alert("Berhasil login sebagai User");
+      router.push("/dashboard"); // Arahkan ke halaman user dashboard
+    }
   };
 
   return (
@@ -28,7 +36,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <input
           type="text"
-          placeholder="username"
+          placeholder="Username"
           className="w-full p-2 mb-4 border rounded"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
