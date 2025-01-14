@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import BookingModal from "./BookingModal";
 import { FaComment } from "react-icons/fa";
 
-const serviceOptions: Record<string, (string | JSX.Element)[]> = {
+const serviceOptions: Record<string, (string | React.ReactNode)[]> = {
   Nurse: ["Perawatan Luka", "Perawatan Lansia", "Layanan Kesehatan Anak"],
   Physiotherapist: [
     "Terapi untuk Lansia",
