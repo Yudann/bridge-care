@@ -2,35 +2,36 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Cookies from "js-cookie";
+import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleLogin = () => {
-    if (email && password) {
-      // Validasi sederhana, bisa diperluas
-      router.push("/dashboard");
-    } else {
-      alert("Please fill in all fields");
+    if (!username || !password) {
+      alert("Username dan Password tidak boleh kosong!");
+      return;
     }
-  };
 
-  const handleRegisterRedirect = () => {
-    router.push("/register");
+    // Simpan username di cookies
+    Cookies.set("username", username, { expires: 7 }); // Username disimpan selama 7 hari
+    alert("Berhasil login");
+    router.push("/dashboard"); // Navigasi ke halaman home
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-full">
       <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <input
-          type="email"
-          placeholder="Email"
+          type="text"
+          placeholder="username"
           className="w-full p-2 mb-4 border rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
@@ -46,13 +47,13 @@ export default function Home() {
           Login
         </button>
         <p className="text-center mt-4">
-          Don`t have an account?{" "}
-          <button
-            onClick={handleRegisterRedirect}
-            className="text-green-500 hover:underline"
+          Belum punya akun?
+          <Link
+            href="/register"
+            className="text-green-500 ml-2 hover:underline"
           >
-            Register here
-          </button>
+            Daftar Disini
+          </Link>
         </p>
       </div>
     </div>
