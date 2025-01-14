@@ -5,7 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import ServiceOptions from "./ServiceOption";
 
-
 // TypeScript types
 type ServiceData = Record<
   string,
@@ -27,6 +26,16 @@ const services: ServiceData = {
     title: "Physiotherapist",
     description: "Specialized therapy for your better health.",
     image: "/terapi.jpeg",
+  },
+  "doctor-consultation": {
+    title: "Doctor Consultation",
+    description: "Consultation with experienced doctors.",
+    image: "/dokter.jpeg",
+  },
+  "ambulance-service": {
+    title: "Ambulance Service",
+    description: "Quick and reliable emergency ambulance.",
+    image: "/ambulan.jpeg",
   },
 };
 
@@ -58,6 +67,24 @@ const profiles: ProfilesData = {
       rating: 4.9,
       price: "150,000",
       img: "/terapi2.jpeg",
+    },
+  ],
+  "Doctor Consultation": [
+    { name: "Dr. Smith", rating: 4.5, price: "25,000", img: "/dokter1.jpeg" },
+    { name: "Dr. Emily", rating: 4.7, price: "30,000", img: "/dokter2.jpeg" },
+  ],
+  "Ambulance Service": [
+    {
+      name: "Ambulance A",
+      rating: 4.9,
+      price: "200,000",
+      img: "/ambulan.jpeg",
+    },
+    {
+      name: "Ambulance B",
+      rating: 4.8,
+      price: "250,000",
+      img: "/ambulan.jpeg",
     },
   ],
 };
