@@ -16,14 +16,17 @@ export default function Home() {
       return;
     }
 
-    // Logika untuk login sebagai admin
-    if (username === "admin" && password === "admin") {
+    // Logika untuk login sebagai admin dengan case-insensitive
+    if (
+      username.toLowerCase() === "admin" &&
+      password.toLowerCase() === "admin"
+    ) {
       // Simpan username di cookies sebagai admin
       Cookies.set("username", username, { expires: 7 });
       alert("Login sebagai Admin");
       router.push("/admin"); // Arahkan ke halaman admin
     } else {
-      // Simpan username di cookies untuk user biasa
+      // Logika untuk user biasa tanpa case-insensitive
       Cookies.set("username", username, { expires: 7 });
       alert("Login berhasil");
       router.push("/dashboard"); // Arahkan ke halaman user dashboard

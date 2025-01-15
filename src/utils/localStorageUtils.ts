@@ -1,12 +1,7 @@
+import { Booking } from "@/types/booking";
 import localforage from "localforage";
 
-type Booking = {
-  username: string;
-  profile: string;
-  service: string;
-  serviceType: string;
-  date: string;
-};
+
 
 // Menyimpan data ke LocalStorage
 export const saveToLocalStorage = async (key: string, data: Booking[]): Promise<void> => {

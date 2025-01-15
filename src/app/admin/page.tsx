@@ -6,25 +6,25 @@ import ServiceCard from "../dashboard/components/ServiceCard";
 const services = [
   {
     title: "Nurse Service",
-    description: "Professional nursing care at your home.",
+    description: "Lihat Data Pesanan",
     image: "/perawat.jpeg",
     slug: "nurse-service",
   },
   {
     title: "Physiotherapist",
-    description: "Specialized therapy for your better health.",
+    description: "Lihat Data Pesanan",
     image: "/terapi.jpeg",
     slug: "physiotherapist",
   },
   {
     title: "Doctor Consultation",
-    description: "Consultation with experienced doctors.",
+    description: "Lihat Data Pesanan",
     image: "/dokter.jpeg",
     slug: "doctor-consultation",
   },
   {
     title: "Ambulance Service",
-    description: "Quick and reliable emergency ambulance.",
+    description: "Lihat Data Pesanan",
     image: "/ambulan.jpeg",
     slug: "ambulance-service",
   },
