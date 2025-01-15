@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -35,7 +36,14 @@ export default function RegisterPage() {
 
   return (
     <div className="flex items-center justify-center h-[80vh]">
-      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
+      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow flex flex-col justify-center items-center">
+        <Image
+          src="/logo.png"
+          alt="brigde-care logo"
+          width={100}
+          height={100}
+          className="mb-6"
+        />
         <h2 className="text-xl font-semibold mb-4 text-center">Register</h2>
         <form onSubmit={signUpClick}>
           <input
