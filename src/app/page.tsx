@@ -34,8 +34,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center justify-center h-full">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+    <div className="flex items-center justify-center h-[80vh]">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md ">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <input
           type="text"
