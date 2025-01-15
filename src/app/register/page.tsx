@@ -38,10 +38,10 @@ export default function RegisterPage() {
     <div className="flex items-center justify-center h-[80vh]">
       <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow flex flex-col justify-center items-center">
         <Image
-          src="/logo.png"
+          src="/logo2.png"
           alt="brigde-care logo"
-          width={100}
-          height={100}
+          width={150}
+          height={150}
           className="mb-6"
         />
         <h2 className="text-xl font-semibold mb-4 text-center">Register</h2>

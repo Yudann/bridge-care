@@ -38,10 +38,10 @@ export default function Home() {
     <div className="flex items-center justify-center h-[80vh]">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md flex flex-col justify-center items-center">
         <Image
-          src="/logo.png"
+          src="/logo2.png"
           alt="brigde-care logo"
-          width={100}
-          height={100}
+          width={150}
+          height={150}
           className="mb-6"
         />
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
