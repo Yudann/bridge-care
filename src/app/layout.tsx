@@ -6,6 +6,9 @@ import Logout from "@/components/Logout";
 export const metadata: Metadata = {
   title: "Bridge Care",
   description: "Healthcare Services",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
