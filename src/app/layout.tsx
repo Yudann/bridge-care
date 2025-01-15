@@ -29,7 +29,9 @@ export default function RootLayout({
           </div>
           <Logout />
         </header>
-        <main className="container mx-auto my-16 p-6 h-full">{children}</main>
+        <main className="container bg-white mx-auto my-16 p-6 h-full">
+          {children}
+        </main>
         <footer className="fixed bottom-0 left-0 right-0 z-[998] bg-green-600 text-white text-center py-2 mt-8">
           &copy; 2025 Bridge Care
         </footer>
